@@ -1,1 +1,76 @@
 @import "tailwindcss";
+
+@theme {
+
+    --color-primary-900: #4078FF;
+    --color-primary-800: #5C83FF;
+    --color-primary-700: #728FFF;
+    --color-primary-600: #869AFF;
+    --color-primary-500: #97A6FF;
+    --color-primary-400: #A8B2FF;
+    --color-primary-300: #B7BFFF;
+    --color-primary-200: #E3E5FF;
+    --color-primary-100: #F0F1FF;
+
+    --color-neutral-900: #0E1422;
+    --color-neutral-800: #202533;
+    --color-neutral-700: #333845;
+    --color-neutral-600: #474B57;
+    --color-neutral-500: #5C5F6A;
+    --color-neutral-400: #71747E;
+    --color-neutral-300: #878A92;
+    --color-neutral-200: #B6B7BC;
+    --color-neutral-100: #E6E7E8;
+
+    --color-offWhite-300: #E9E9EB;
+    --color-offWhite-200: #F6F6F6;
+    --color-offWhite-100: #FFFFFF;
+
+    --color-semanticBlue-900: #306CEF;
+    --color-semanticBlue-800: #477CF1; 
+    --color-semanticBlue-700: #5E8CF3;
+    --color-semanticBlue-600: #759DF4;
+    --color-semanticBlue-500: #8CADF6;
+    --color-semanticBlue-400: #A3BEF8;
+    --color-semanticBlue-300: #BACEFA;
+    --color-semanticBlue-200: #D1DEFB;
+    --color-semanticBlue-100: #E8EFFD;
+
+    --color-semanticGreen-900: #057234;
+    --color-semanticGreen-800: #2C7F45;
+    --color-semanticGreen-700: #458B56;
+    --color-semanticGreen-600: #5A9868;
+    --color-semanticGreen-500: #6FA479;
+    --color-semanticGreen-400: #83B18B;
+    --color-semanticGreen-300: #98BE9E;
+    --color-semanticGreen-200: #C1D8C4;
+    --color-semanticGreen-100: #D5E5D7;
+
+    --color-semanticRed-900: #BE1313;
+    --color-semanticRed-800: #C83727;
+    --color-semanticRed-700: #D14F3A;
+    --color-semanticRed-600: #D9644E;
+    --color-semanticRed-500: #E17862;
+    --color-semanticRed-400: #E88C77;
+    --color-semanticRed-300: #EE9F8D;
+    --color-semanticRed-200: #F8C5B9;
+    --color-semanticRed-100: #FBD9D0;
+
+    --color-semanticYellow-900: #F3B40A;
+    --color-semanticYellow-800: #F6BB33;
+    --color-semanticYellow-700: #F9C14C;
+    --color-semanticYellow-600: #FBC862;
+    --color-semanticYellow-500: #FDCF76;
+    --color-semanticYellow-400: #FFD58A;
+    --color-semanticYellow-300: #FFDC9E;
+    --color-semanticYellow-200: #FFEAC4;
+    --color-semanticYellow-100: #FFF1D8;
+    
+
+
+    --color-avocado-200: oklch(0.98 0.04 113.22);
+    --color-avocado-300: oklch(0.94 0.11 115.03);
+    --color-avocado-400: oklch(0.92 0.19 114.08);
+    --color-avocado-500: oklch(0.84 0.18 117.33);
+    --color-avocado-600: oklch(0.53 0.12 118.34);
+  }
