@@ -1,0 +1,148 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Basic White T-Shirt",
+        "image": "https://example.com/images/basic-white-tshirt.jpg",
+        "category": "T-Shirt",
+        "price": 15.99,
+        "stock": 50
+      },
+      {
+        "id": 2,
+        "name": "Graphic Black T-Shirt",
+        "image": "https://example.com/images/graphic-black-tshirt.jpg",
+        "category": "T-Shirt",
+        "price": 19.99,
+        "stock": 30
+      },
+      {
+        "id": 3,
+        "name": "Blue Hoodie",
+        "image": "https://example.com/images/blue-hoodie.jpg",
+        "category": "Hoodie",
+        "price": 29.99,
+        "stock": 20
+      },
+      {
+        "id": 4,
+        "name": "Grey Zip-Up Hoodie",
+        "image": "https://example.com/images/grey-zipup-hoodie.jpg",
+        "category": "Hoodie",
+        "price": 34.99,
+        "stock": 15
+      },
+      {
+        "id": 5,
+        "name": "Red Graphic T-Shirt",
+        "image": "https://example.com/images/red-graphic-tshirt.jpg",
+        "category": "T-Shirt",
+        "price": 22.99,
+        "stock": 40
+      },
+      {
+        "id": 6,
+        "name": "Black Oversized Hoodie",
+        "image": "https://example.com/images/black-oversized-hoodie.jpg",
+        "category": "Hoodie",
+        "price": 39.99,
+        "stock": 10
+      },
+      {
+        "id": 7,
+        "name": "Vintage White T-Shirt",
+        "image": "https://example.com/images/vintage-white-tshirt.jpg",
+        "category": "T-Shirt",
+        "price": 18.99,
+        "stock": 35
+      },
+      {
+        "id": 8,
+        "name": "Camo Green Hoodie",
+        "image": "https://example.com/images/camo-green-hoodie.jpg",
+        "category": "Hoodie",
+        "price": 33.99,
+        "stock": 25
+      },
+      {
+        "id": 9,
+        "name": "Slim Fit Jeans",
+        "image": "https://example.com/images/slim-fit-jeans.jpg",
+        "category": "Jeans",
+        "price": 49.99,
+        "stock": 20
+      },
+      {
+        "id": 10,
+        "name": "Classic Sneakers",
+        "image": "https://example.com/images/classic-sneakers.jpg",
+        "category": "Shoes",
+        "price": 59.99,
+        "stock": 15
+      },
+      {
+        "id": 11,
+        "name": "Striped Polo Shirt",
+        "image": "https://example.com/images/striped-polo-shirt.jpg",
+        "category": "T-Shirt",
+        "price": 24.99,
+        "stock": 30
+      },
+      {
+        "id": 12,
+        "name": "Denim Jacket",
+        "image": "https://example.com/images/denim-jacket.jpg",
+        "category": "Jacket",
+        "price": 69.99,
+        "stock": 10
+      },
+      {
+        "id": 13,
+        "name": "High-Top Sneakers",
+        "image": "https://example.com/images/high-top-sneakers.jpg",
+        "category": "Shoes",
+        "price": 79.99,
+        "stock": 12
+      },
+      {
+        "id": 14,
+        "name": "Cotton Beanie",
+        "image": "https://example.com/images/cotton-beanie.jpg",
+        "category": "Accessories",
+        "price": 14.99,
+        "stock": 50
+      },
+      {
+        "id": 15,
+        "name": "Leather Belt",
+        "image": "https://example.com/images/leather-belt.jpg",
+        "category": "Accessories",
+        "price": 19.99,
+        "stock": 40
+      },
+      {
+        "id": 16,
+        "name": "Wool Scarf",
+        "image": "https://example.com/images/wool-scarf.jpg",
+        "category": "Accessories",
+        "price": 29.99,
+        "stock": 25
+      },
+      {
+        "id": 17,
+        "name": "Running Shoes",
+        "image": "https://example.com/images/running-shoes.jpg",
+        "category": "Shoes",
+        "price": 89.99,
+        "stock": 18
+      },
+      {
+        "id": 18,
+        "name": "Cargo Pants",
+        "image": "https://example.com/images/cargo-pants.jpg",
+        "category": "Pants",
+        "price": 44.99,
+        "stock": 22
+      }
+    ]
+  }
