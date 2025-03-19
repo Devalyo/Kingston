@@ -6,29 +6,28 @@ import youtube from '../assets/Youtube.svg';
 import Visa from '../assets/Visa.svg';
 import Mastercard from '../assets/Mastercard.svg';
 import Amex from '../assets/Amex.svg';
+import Button from './Button';
 
 function Footer() {
     return (
         <footer className="text-gray-600 font-[Inter]">
-          <div className="w-full mx-auto py-16 text-center md:text-left flex flex-col md:flex-row md:justify-between bg-offWhite-200 md:px-65">
+          <div className="w-full py-16 text-center lg:text-left flex flex-col lg:flex-row lg:justify-between bg-offWhite-200 md:px-65">
             <div className="flex flex-col gap-3">
                 <h2 className="text-2xl font-bold text-gray-900">Join Our Newsletter</h2>
                 <p className="mt-2 text-gray-500">We love to surprise our subscribers with occasional gifts.</p>
             </div>
     
-            <div className="mt-4 flex flex-col md:flex-row items-center gap-4">
+            <div className="mt-4 flex flex-col lg:flex-row items-center gap-10 lg:gap-4">
               <input
                 type="email"
                 placeholder="Your email address"
-                className="w-full md:w-96 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-200 border-neutral-100"
+                className="w-80 md:w-96 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-200 border-neutral-100"
               />
-              <button className="bg-neutral-900 text-white px-7 py-3 rounded-md">
-                Subscribe
-              </button>
+              <Button text='Subscribe' arrow={false} width={'auto'}></Button>
             </div>
           </div>
     
-            <div className="mx-60 px-6 py-25 flex md:flex-row flex-col gap-30 justify-between">
+            <div className="lg:mx-60 px-4 py-25 flex md:flex-row flex-col gap-30 md:justify-between md:flex-wrap">
                 <div className='flex flex-col justify-start gap-3 max-w-65'>
                     <div className="flex items-center gap-4">
                         <img src={logo} alt="Ecommerce Logo" className="w-10 h-10" />
@@ -42,7 +41,7 @@ function Footer() {
                     </div>
                 </div>
         
-                <div className='flex gap-20'> 
+                <div className='flex flex-col gap-20 md:flex-row'> 
 
                     <div>
                     <h3 className="text-neutral-300 mb-15">SUPPORT</h3>
