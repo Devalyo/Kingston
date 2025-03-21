@@ -10,7 +10,7 @@ function About() {
         <main>
             <section className="h-80 bg-blue-900 flex justify-end align-bottom items-end bg-[url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/John_William_Waterhouse_-_The_Lady_of_Shalott_-_Google_Art_Project_edit.jpg/1280px-John_William_Waterhouse_-_The_Lady_of_Shalott_-_Google_Art_Project_edit.jpg)] bg-cover mb-30 lg:mb-15">
                 <div className="border-4 rounded-full border-offWhite-100 h-60 w-60 overflow-hidden relative top-30 lg:right-50 right-30">
-                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQEZLNpwro8XJA/profile-displayphoto-shrink_800_800/B4DZVQp5qSGcAc-/0/1740814917091?e=1747872000&v=beta&t=iu6HxlpZS4YxHU72hgLSJXryksu8p47JOq9VlfLA5_w" className="h-fit"></img>
+                    <img src="https://avatars.githubusercontent.com/u/117108120?v=4" className="h-full"></img>
                 </div>
             </section>
 
