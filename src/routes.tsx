@@ -4,6 +4,7 @@ import ListingPage from "./pages/ListingPage";
 import About from "./pages/About";
 import Page404 from "./pages/Page404";
 import ProductDetails from "./pages/ProductDetails";
+import Page403 from "./pages/Page403";
 
 
 
@@ -30,6 +31,12 @@ const routes = createBrowserRouter([
     {
         path:'/shop/:productId',
         element: <ProductDetails></ProductDetails>
+
+    },
+
+    {
+        path:'/403',
+        element: <Page403></Page403> 
 
     },
 
