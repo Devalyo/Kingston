@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { Product } from "../types/productType";
 import { Link, useParams } from 'react-router';
@@ -22,7 +21,7 @@ const ProductDetails = () => {
         fetch(`http://localhost:3000/products/${id}`)
             .then((response) => response.json())
             .then((data: Product) => {console.log(data); setProduct(data)});
-        }, []);
+        }, [id]);
         
         useEffect(() =>
             {
@@ -55,7 +54,7 @@ const ProductDetails = () => {
             </nav>
 
             <main className="flex flex-col xl:flex-row xl:mx-65 md:mx-35 h-full">
-                <div className="lg:w-1/2 bg-offWhite-200 h-full">
+                <div className="lg:w-1/2 bg-offWhite-200 h-full min-h-155">
                     <div className="flex justify-center items-center h-5/6">
                         <img className="block min-w-100" src={product.image[0]}></img>
                     </div>
@@ -115,9 +114,10 @@ const ProductDetails = () => {
                             </div>
                         </div>
                         <div>
-                            <button className={`${selectedColor && selectedSize? " bg-neutral-900 cursor-pointer" : "bg-neutral-200 disabled"}  text-white px-8 py-3 rounded-md flex items-center gap-2 justify-center h-12 w-80 mt-5`}>
+                            <Link to={"/403"}><button className={`${selectedColor && selectedSize? " bg-neutral-900 cursor-pointer" : "bg-neutral-200 disabled"}  text-white px-8 py-3 rounded-md flex items-center gap-2 justify-center h-12 w-80 mt-5`}>
                                 <span>Add to cart</span>
                             </button>
+                            </Link>
                         <div className="text-neutral-500 font-[400] mt-5 text-sm">— FREE SHIPPING ON ORDERS $100+</div>
                         </div>
                     </>
