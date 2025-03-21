@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import ListingItem from "../components/ListingItem";
 import { Product } from "../types/productType";
@@ -12,7 +13,7 @@ const ListingPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
-  const [maxPrice, setMaxPrice] = useState<number>(50);
+  const [maxPrice, setMaxPrice] = useState<number>(99.99);
   const [priceFilter, setPriceFilter] = useState<number>(maxPrice);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -39,6 +40,8 @@ const ListingPage = () => {
         setSelectedCategory(cat);
       }
     }
+
+
     
     const fetchProducts = async () => {
     try {
@@ -72,8 +75,14 @@ const ListingPage = () => {
       {
         extractCategories(filtered);
       }
+
+      if(maxPrice === 99.99)
+      {
+
+        setMaxPrice(Math.ceil(Math.max(50, ...filtered.map((p: Product) => p.price))));
+      }
+
       
-      setMaxPrice(Math.ceil(Math.max(50 , ...products.map((p: Product) => p.price))));
       setProducts(filtered);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -86,6 +95,7 @@ const ListingPage = () => {
 
   }, []);
 
+  
   useEffect(() => {
     fetchProducts();
     
@@ -100,19 +110,26 @@ useEffect(() => {
   const timeout = setTimeout(() => {
     setPriceFilter(tempPriceFilter); 
   }, 500); 
-
+  
   return () => clearTimeout(timeout); 
 }, [tempPriceFilter]); 
+
+
+useEffect(() => {
+
+}, [selectedCategory]);
+
+
 
   return (
     <>
       <Header />
-      <nav className="mb-4 text-neutral-500 bg-offWhite-200 py-8 px-65">
+      <nav className="mb-4 text-neutral-500 bg-offWhite-200 py-8 lg:px-65 px-14">
         <Link to={'/'}>Ecommerce</Link> &gt; <span className="text-neutral-900">Search</span>
       </nav>
 
-      <div className="flex gap-4 pl-65">
-        <aside className="w-1/6 py-8 px-5 border-neutral-100 rounded-2xl border-1 min-h-100 h-fit">
+      <div className="flex flex-col lg:flex-row gap-4 lg:pl-20 2xl:pl-65 px-14 lg:px-0">
+        <aside className="lg:w-1/6 min-w-80 py-8 px-5 border-neutral-100 rounded-2xl border-1 min-h-100 h-fit">
           <div>
             <h3 className="text-md mb-8 text-neutral-900 font-[500]">Categories</h3>
             <ul className="flex flex-col gap-5 text-slate-400">
@@ -120,7 +137,7 @@ useEffect(() => {
                                 <li key={cat}>
                                     <div className="flex items-center gap-2 border-b border-b-slate-200 pb-3">
                                         <div
-                                            className={`flex items-center justify-center border-2 rounded-sm w-5 h-6 border-slate-200 cursor-pointer transition-all ${selectedCategory === cat
+                                            className={`flex items-center justify-center border-2 rounded-sm w-6 h-6 border-slate-200 cursor-pointer transition-all ${selectedCategory === cat
                                                 ? "border-2 border-neutral-500 bg-neutral-700"
                                                 : ""
                                                 }`}
@@ -148,8 +165,8 @@ useEffect(() => {
           </div>
         </aside>
 
-        <main className="w-5/6 min-h-200 pr-65">
-        <div className="flex justify-between pl-10">
+        <main className="lg:w-5/6 min-h-200 lg:pr-20 2xl:pr-65">
+        <div className="flex flex-col lg:flex-row justify-between lg:pl-10">
           <div className="">
             <h3 className="font-semibold mb-5">Applied Filters: </h3>
 
@@ -160,7 +177,7 @@ useEffect(() => {
             {priceFilter !== maxPrice?
                  <div className="border rounded-4xl border-slate-300 px-4 w-fit flex items-center gap-3">${priceFilter}<span onClick={() => setPriceFilter(maxPrice)}><img className="w-7" src={X}></img></span></div> : "" }
             </div>
-            </div>
+          </div>
           <input
             type="text"
             placeholder="Search products..    ."
@@ -170,13 +187,13 @@ useEffect(() => {
           />
         </div>
       
-        <div className="text-neutral-500 pl-10 pb-4">
+        <div className="text-neutral-500 lg:pl-10 pb-4 pt-4">
           Showing {1 + "-" + totalItems / pages} of {totalItems} results
 
         </div>
 
           {products.length > 0 ? (
-            <div className="grid grid-cols-3 py-5 gap-20 pl-10">
+            <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 py-5 xl:gap-25 md:gap-10 lg:pl-10">
               {products.map((product) => (
                 <ListingItem
                   key={product.id}
@@ -184,6 +201,7 @@ useEffect(() => {
                   title={product.name}
                   label={product.stock > 0 ? "In Stock" : "No Stock"}
                   price={`$${product.price}`}
+                  url={product.id}
                 />
               ))}
             </div>
@@ -195,8 +213,9 @@ useEffect(() => {
             <div className="flex gap-5 border rounded-md border-slate-200 h-10 w-50 justify-around align-middle items-center max-w-fit py-6 px-5">
               <button
                 disabled={currentPage === 1}
-                onClick={() => setCurrentPage((prev) => prev - 1)}
-                className="p-2 disabled:opacity-50"
+                onClick={() => {setCurrentPage((prev) => prev - 1); window.scrollTo(0,0);
+                }}
+                className="p-2 disabled:opacity-50 cursor-pointer disabled:cursor-default"
               >
                 <img src={Previous}></img>
                 
@@ -205,7 +224,7 @@ useEffect(() => {
               <button
                 disabled={currentPage === pages}
                 onClick={() => setCurrentPage((prev) => prev + 1)}
-                className="p-2  disabled:opacity-50"
+                className="p-2 disabled:opacity-50 cursor-pointer disabled:cursor-default"
               >
                 <img src={next}></img>
               </button>
