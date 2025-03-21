@@ -14,16 +14,14 @@ const ListingPage = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [maxPrice, setMaxPrice] = useState<number>(99.99);
-  const [priceFilter, setPriceFilter] = useState<number>(maxPrice);
+  const [priceFilter, setPriceFilter] = useState<number>(99.99);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pages, setPages] = useState<number>(1);
   const [tempPriceFilter, setTempPriceFilter] = useState<number>(50);
   const [totalItems, setTotalItems] = useState<number>(20);
+  const [isInitialLoad, setIsInitialLoad] = useState<boolean>(true);
 
-
-
-  
   const extractCategories = (products: Product[]) => {
     const uniqueCategories = [...new Set(products.map((product) => product.category))];
     setCategories(uniqueCategories);
@@ -41,9 +39,7 @@ const ListingPage = () => {
       }
     }
 
-
-    
-    const fetchProducts = async () => {
+  const fetchProducts = async () => {
     try {
       let url = `http://localhost:3000/products?_page=${currentPage}&_per_page=9`;
       if (selectedCategory) url += `&category=${selectedCategory}`;
@@ -57,7 +53,6 @@ const ListingPage = () => {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       
-      
       const data = JSON.parse(responseText); 
       let filtered = data.data;
       setPages(data.pages)
@@ -67,21 +62,21 @@ const ListingPage = () => {
         filtered = filtered.filter((product : Product) => product.name.toLowerCase().includes(searchQuery.toLowerCase()))
       }
 
-      if(priceFilter != maxPrice)
-      {
+      if(!isInitialLoad && priceFilter !== maxPrice) {
         filtered = filtered.filter((product : Product) => product.price <= priceFilter);
       }
-      if(categories.length === 0)
-      {
+
+      if(categories.length === 0) {
         extractCategories(filtered);
       }
 
-      if(maxPrice === 99.99)
-      {
-
-        setMaxPrice(Math.ceil(Math.max(50, ...filtered.map((p: Product) => p.price))));
+      if(isInitialLoad) {
+        const newMaxPrice = Math.ceil(Math.max(50, ...filtered.map((p: Product) => p.price)));
+        setMaxPrice(newMaxPrice);
+        setPriceFilter(newMaxPrice);
+        setTempPriceFilter(newMaxPrice);
+        setIsInitialLoad(false);
       }
-
       
       setProducts(filtered);
     } catch (error) {
@@ -89,37 +84,31 @@ const ListingPage = () => {
     }
   };
   
-
   useEffect(() => {
     fetchProducts();
-
   }, []);
 
-  
   useEffect(() => {
-    fetchProducts();
-    
+    if (!isInitialLoad) {
+      fetchProducts();
+    }
   }, [selectedCategory, searchQuery, priceFilter, currentPage]);
   
-
   useEffect(() => {
-    setTempPriceFilter(maxPrice);
+    if (!isInitialLoad) {
+      setTempPriceFilter(maxPrice);
+    }
   }, [maxPrice]);
 
-useEffect(() => {
-  const timeout = setTimeout(() => {
-    setPriceFilter(tempPriceFilter); 
-  }, 500); 
-  
-  return () => clearTimeout(timeout); 
-}, [tempPriceFilter]); 
-
-
-useEffect(() => {
-
-}, [selectedCategory]);
-
-
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (!isInitialLoad) {
+        setPriceFilter(tempPriceFilter); 
+      }
+    }, 500); 
+    
+    return () => clearTimeout(timeout); 
+  }, [tempPriceFilter]); 
 
   return (
     <>
@@ -133,66 +122,76 @@ useEffect(() => {
           <div>
             <h3 className="text-md mb-8 text-neutral-900 font-[500]">Categories</h3>
             <ul className="flex flex-col gap-5 text-slate-400">
-                            { categories.length > 0? categories.map((cat) => (
-                                <li key={cat}>
-                                    <div className="flex items-center gap-2 border-b border-b-slate-200 pb-3">
-                                        <div
-                                            className={`flex items-center justify-center border-2 rounded-sm w-6 h-6 border-slate-200 cursor-pointer transition-all ${selectedCategory === cat
-                                                ? "border-2 border-neutral-500 bg-neutral-700"
-                                                : ""
-                                                }`}
-                                            onClick={() => handleSelectedCategories(cat)}>
-                                            {selectedCategory === cat? <span className="!text-white text-[12px] leading-none">&#10003;</span> : ""}
-                                        </div>
-                                        <span className="text-neutral-600">{cat}</span>
-                                    </div>
-                                </li>
-                            )): <div>Categories not Found</div>}
-              </ul>
+              { categories.length > 0? categories.map((cat) => (
+                <li key={cat}>
+                  <div className="flex items-center gap-2 border-b border-b-slate-200 pb-3">
+                    <div
+                      className={`flex items-center justify-center border-2 rounded-sm w-6 h-6 border-slate-200 cursor-pointer transition-all ${selectedCategory === cat
+                        ? "border-2 border-neutral-500 bg-neutral-700"
+                        : ""
+                      }`}
+                      onClick={() => handleSelectedCategories(cat)}>
+                      {selectedCategory === cat? <span className="!text-white text-[12px] leading-none">&#10003;</span> : ""}
+                    </div>
+                    <span className="text-neutral-600">{cat}</span>
+                  </div>
+                </li>
+              )): <div>Categories not Found</div>}
+            </ul>
           </div>
 
           <div className="my-10">
             <h3 className="text-lg py-5">Price</h3>
             <input
-                type="range"
-                min="0"
-                max={maxPrice}
-                value={tempPriceFilter}
-                onChange={(e) => setTempPriceFilter(Number(e.target.value))}
-                className="accent-neutral-800"
+              type="range"
+              min="0"
+              max={maxPrice}
+              value={tempPriceFilter}
+              onChange={(e) => setTempPriceFilter(Number(e.target.value))}
+              className="accent-neutral-800"
             />
             <span>${tempPriceFilter}</span>
           </div>
         </aside>
 
         <main className="lg:w-5/6 min-h-200 lg:pr-20 2xl:pr-65">
-        <div className="flex flex-col lg:flex-row justify-between lg:pl-10">
-          <div className="">
-            <h3 className="font-semibold mb-5">Applied Filters: </h3>
+          <div className="flex flex-col lg:flex-row justify-between lg:pl-10">
+            <div className="">
+              <h3 className="font-semibold mb-5">Applied Filters: </h3>
 
-            <div className="flex gap-3 mb-5">
-            {selectedCategory? 
-            <div className="border rounded-4xl border-slate-300 px-4 w-fit flex items-center gap-3">{selectedCategory}<span onClick={() => setSelectedCategory("")}><img className="w-7" src={X}></img></span></div> : ""
-            }
-            {priceFilter !== maxPrice?
-                 <div className="border rounded-4xl border-slate-300 px-4 w-fit flex items-center gap-3">${priceFilter}<span onClick={() => setPriceFilter(maxPrice)}><img className="w-7" src={X}></img></span></div> : "" }
+              <div className="flex gap-3 mb-5">
+                {selectedCategory ? 
+                  <div className="border rounded-4xl border-slate-300 px-4 w-fit flex items-center gap-3">
+                    {selectedCategory}
+                    <span onClick={() => setSelectedCategory("")}><img className="w-7" src={X} alt="Remove filter" /></span>
+                  </div> : ""
+                }
+                {!isInitialLoad && priceFilter !== maxPrice ?
+                  <div className="border rounded-4xl border-slate-300 px-4 w-fit flex items-center gap-3">
+                    ${priceFilter}
+                    <span onClick={() => setPriceFilter(maxPrice)}><img className="w-7" src={X} alt="Remove filter" /></span>
+                  </div> : ""
+                }
+              </div>
             </div>
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full px-5 py-3 border-slate-300 border rounded-md mb-4 max-h-13 max-w-80"
+            />
           </div>
-          <input
-            type="text"
-            placeholder="Search products..    ."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-5 py-3 border-slate-300 border rounded-md mb-4 max-h-13 max-w-80"
-          />
-        </div>
       
-        <div className="text-neutral-500 lg:pl-10 pb-4 pt-4">
-          Showing {1 + "-" + totalItems / pages} of {totalItems} results
+          <div className="text-neutral-500 lg:pl-10 pb-4 pt-4">
+            Showing {1 + "-" + totalItems / pages} of {totalItems} results
+          </div>
 
-        </div>
-
-          {products.length > 0 ? (
+          {isInitialLoad ? (
+            <div className="flex items-center justify-center h-64">
+              <p className="text-neutral-500">Loading products...</p>
+            </div>
+          ) : products.length > 0 ? (
             <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 py-5 xl:gap-25 md:gap-10 lg:pl-10">
               {products.map((product) => (
                 <ListingItem
@@ -213,12 +212,13 @@ useEffect(() => {
             <div className="flex gap-5 border rounded-md border-slate-200 h-10 w-50 justify-around align-middle items-center max-w-fit py-6 px-5">
               <button
                 disabled={currentPage === 1}
-                onClick={() => {setCurrentPage((prev) => prev - 1); window.scrollTo(0,0);
+                onClick={() => {
+                  setCurrentPage((prev) => prev - 1); 
+                  window.scrollTo(0,0);
                 }}
                 className="p-2 disabled:opacity-50 cursor-pointer disabled:cursor-default"
               >
-                <img src={Previous}></img>
-                
+                <img src={Previous} alt="Previous page" />
               </button>
               <div className="flex justify-center align-middle text-center rounded font-[700] bg-offWhite-200 w-10 h-8 items-center">{currentPage}</div>
               <button
@@ -226,7 +226,7 @@ useEffect(() => {
                 onClick={() => setCurrentPage((prev) => prev + 1)}
                 className="p-2 disabled:opacity-50 cursor-pointer disabled:cursor-default"
               >
-                <img src={next}></img>
+                <img src={next} alt="Next page" />
               </button>
             </div>
           </div>
