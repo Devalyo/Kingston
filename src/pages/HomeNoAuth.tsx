@@ -96,7 +96,7 @@ function HomeNoAuth() {
             {products.slice(0, 4).map((product) => (
                 <ListingItem
                   key={product.id}
-                  imageSrc={product.image}
+                  imageSrc={product.image[0]}
                   title={product.name}
                   label={product.stock > 0 ? "In Stock" : "No Stock"}
                   price={`$${product.price}`}
@@ -130,7 +130,7 @@ function HomeNoAuth() {
             {products.slice(4,8).map((product) => (
                 <ListingItem
                   key={product.id}
-                  imageSrc={product.image}
+                  imageSrc={product.image[0]}
                   title={product.name}
                   label={product.stock > 0 ? "In Stock" : "No Stock"}
                   price={`$${product.price}`}
