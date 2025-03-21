@@ -81,21 +81,32 @@ const ProductDetails = () => {
                             alt={`${product.name} - Image ${currentImageIndex + 1}`}
                         />
                         
-                        <button 
-                            onClick={prevImage}
-                            className="absolute left-4 bg-white rounded-full p-2 shadow-md opacity-80 hover:opacity-100"
-                            aria-label="Previous image"
-                        >
-                            <ChevronLeft size={20} />
-                        </button>
+                        {product.image.length > 1 && (
+                        <>
+                            <button 
+                                onClick={prevImage}
+                                className="absolute left-4 bg-white rounded-full p-2 shadow-md opacity-80 hover:opacity-100"
+                                aria-label="Previous image"
+                            >
+                                <ChevronLeft size={20} />
+                            </button>
+                            
+                            <button 
+                                onClick={nextImage}
+                                className="absolute right-4 bg-white rounded-full p-2 shadow-md opacity-80 hover:opacity-100"
+                                aria-label="Next image"
+                            >
+                                <ChevronRight size={20} />
+                            </button>
+                        </>
+                        )
                         
-                        <button 
-                            onClick={nextImage}
-                            className="absolute right-4 bg-white rounded-full p-2 shadow-md opacity-80 hover:opacity-100"
-                            aria-label="Next image"
-                        >
-                            <ChevronRight size={20} />
-                        </button>
+                        
+                        
+                        
+                        
+                        
+                        }
                     </div>
                     
                     <div className="flex justify-center gap-2 pb-4">
@@ -104,7 +115,7 @@ const ProductDetails = () => {
                                 key={index}
                                 onClick={() => goToImage(index)}
                                 className={`w-3 h-3 rounded-full ${
-                                    currentImageIndex === index ? 'bg-neutral-900' : 'bg-neutral-300'
+                                    currentImageIndex === index ? 'bg-neutral-800' : 'bg-neutral-300'
                                 }`}
                                 aria-label={`Go to image ${index + 1}`}
                             />
