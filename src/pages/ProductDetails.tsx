@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { Product } from "../types/productType";
 import { Link, useParams } from 'react-router';
@@ -5,7 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Share from "../assets/share.svg";
 import Star from "../assets/star.svg";
-import { Minus, Plus } from "lucide-react";
+import { Minus, Plus, ChevronLeft, ChevronRight } from "lucide-react";
 import More from "../assets/More.svg";
 import ListingItem from "../components/ListingItem";
 
@@ -16,12 +17,13 @@ const ProductDetails = () => {
     const [selectedColor, setSelectedColor] = useState<string | null>(null);
     const [selectedSize, setSelectedSize] = useState<string | null>(null);
     const [quantity, setQuantity] = useState<number>(1);
+    const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
     useEffect(() => {
         fetch(`http://localhost:3000/products/${id}`)
             .then((response) => response.json())
             .then((data: Product) => {console.log(data); setProduct(data)});
-        }, [id]);
+        }, []);
         
         useEffect(() =>
             {
@@ -32,11 +34,28 @@ const ProductDetails = () => {
                         fetch(`http://localhost:3000/products?category=${product?.category}`)
                         .then((response) => response.json() as Promise<Product[]>) 
                         .then((data) => {  console.log(data); setSimilarProducts(data.slice(0, 4));});
-                    
-                        
                     }
+    }, [product]);
 
-    }, [product])
+    const nextImage = () => {
+        if (product) {
+            setCurrentImageIndex((prevIndex) => 
+                prevIndex === product.image.length - 1 ? 0 : prevIndex + 1
+            );
+        }
+    };
+
+    const prevImage = () => {
+        if (product) {
+            setCurrentImageIndex((prevIndex) => 
+                prevIndex === 0 ? product.image.length - 1 : prevIndex - 1
+            );
+        }
+    };
+
+    const goToImage = (index: number) => {
+        setCurrentImageIndex(index);
+    };
 
     if (!product) return (
         <>
@@ -54,9 +73,42 @@ const ProductDetails = () => {
             </nav>
 
             <main className="flex flex-col xl:flex-row xl:mx-65 md:mx-35 h-full">
-                <div className="lg:w-1/2 bg-offWhite-200 h-full min-h-155">
-                    <div className="flex justify-center items-center h-5/6">
-                        <img className="block min-w-100" src={product.image[0]}></img>
+                <div className="lg:w-1/2 bg-offWhite-200 h-full min-h-155 relative">
+                    <div className="flex justify-center items-center relative">
+                        <img 
+                            className="block min-w-100 max-h-150 transition-opacity duration-300" 
+                            src={product.image[currentImageIndex]} 
+                            alt={`${product.name} - Image ${currentImageIndex + 1}`}
+                        />
+                        
+                        <button 
+                            onClick={prevImage}
+                            className="absolute left-4 bg-white rounded-full p-2 shadow-md opacity-80 hover:opacity-100"
+                            aria-label="Previous image"
+                        >
+                            <ChevronLeft size={20} />
+                        </button>
+                        
+                        <button 
+                            onClick={nextImage}
+                            className="absolute right-4 bg-white rounded-full p-2 shadow-md opacity-80 hover:opacity-100"
+                            aria-label="Next image"
+                        >
+                            <ChevronRight size={20} />
+                        </button>
+                    </div>
+                    
+                    <div className="flex justify-center gap-2 pb-4">
+                        {product.image.map((img, index) => (
+                            <button 
+                                key={index}
+                                onClick={() => goToImage(index)}
+                                className={`w-3 h-3 rounded-full ${
+                                    currentImageIndex === index ? 'bg-neutral-900' : 'bg-neutral-300'
+                                }`}
+                                aria-label={`Go to image ${index + 1}`}
+                            />
+                        ))}
                     </div>
                 </div>
 
@@ -125,7 +177,7 @@ const ProductDetails = () => {
                 </div>
             </main>
 
-                <section className="flex items-center gap-11 xl:px-65 lg:mt-40   lg:mb-40">
+                <section className="flex items-center gap-11 xl:px-65 lg:mt-40 lg:mb-40">
 
                     <div className="flex items-center gap-3 px-10 w-full max-w-80 py-3 rounded-md bg-offWhite-200">
                         <img src={More}></img>

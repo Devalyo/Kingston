@@ -2,12 +2,12 @@
   "products": [
     {
       "id": "1",
-      "name": "Basic White T-Shirt",
-      "image": ["https://i.imgur.com/blB9D7d.png"],
+      "name": "Basic Black T-Shirt",
+      "image": ["https://i.imgur.com/blB9D7d.png", "https://barthelemy.com.br/cdn/shop/files/bioblack1.webp?v=1709312029&width=960"],
       "category": "T-Shirt",
       "price": 15.99,
       "stock": 50,
-      "colors": ["White", "Black", "Blue"],
+      "colors": ["Black"],
       "sizes": ["S", "M", "L", "XL"],
       "reviewCount": 120,
       "stars": 4.5,
@@ -81,7 +81,7 @@
     {
       "id": "7",
       "name": "Vintage White T-Shirt",
-      "image": ["https://s3-alpha-sig.figma.com/img/cc73/aa4a/0e8af69dd454db02bbfa89c8b3be4f4a?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=s5BhqyZvm1Y1bzuY4o6ns-97iutjOfkB-TlArr3EpIXSs5ps21G69hFjERoWDeTBSTmBs9bqUpX0XL0nRX-T~4jdNIvSplT1WTyWQx5f7xsOf9bvMW67pj3p36m0aX5gl4~VRsNtIsGJSVHrgEi1iWMjsT2SbnIxbbqVNZMwS~rX-3NFE1TBRR7dROgK2qOSGhtt~qhe-92kx~XQJLScVv~CfwRGG-7c7OkrCtvKtRcFGGoaL2ZCbLut17C-TLl6fudAEjSXVqJsiq6vTCMFOBTdreasX3zbm32Z3jvRIXoJ1fG0yOLQ6J25edoRZc6r5vp8ThYKgQJxGvbY2OB9~w__"],
+      "image": ["https://s3-alpha-sig.figma.com/img/cc73/aa4a/0e8af69dd454db02bbfa89c8b3be4f4a?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=s5BhqyZvm1Y1bzuY4o6ns-97iutjOfkB-TlArr3EpIXSs5ps21G69hFjERoWDeTBSTmBs9bqUpX0XL0nRX-T~4jdNIvSplT1WTyWQx5f7xsOf9bvMW67pj3p36m0aX5gl4~VRsNtIsGJSVHrgEi1iWMjsT2SbnIxbbqVNZMwS~rX-3NFE1TBRR7dROgK2qOSGhtt~qhe-92kx~XQJLScVv~CfwRGG-7c7OkrCtvKtRcFGGoaL2ZCbLut17C-TLl6fudAEjSXVqJsiq6vTCMFOBTdreasX3zbm32Z3jvRIXoJ1fG0yOLQ6J25edoRZc6r5vp8ThYKgQJxGvbY2OB9~w__", "https://www.houseofblanks.com/cdn/shop/files/HeavyweightTshirt_White_02_1.jpg?v=1726516823&width=1946"],
       "category": "T-Shirt",
       "price": 18.99,
       "stock": 35,
@@ -107,7 +107,7 @@
     {
       "id": "9",
       "name": "Slim Fit Jeans",
-      "image": ["https://example.com/images/slim-fit-jeans.jpg"],
+      "image": ["https://png.pngtree.com/png-clipart/20231017/original/pngtree-blue-jeans-png-file-png-image_13328171.png"],
       "category": "Jeans",
       "price": 49.99,
       "stock": 20,
