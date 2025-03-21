@@ -1,6 +1,7 @@
 # Kingston
 A cloathing e-commerce with dynamic pages and products.
 
+![image](https://github.com/user-attachments/assets/8f070197-108d-4a81-85b9-9071e22d9a83)
 
 
 # Technologies Used
