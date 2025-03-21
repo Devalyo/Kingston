@@ -9,8 +9,24 @@ import Circle from '../assets/heroCircle.svg'
 import Glitter from '../assets/heroGlitter.svg'
 import Blouse from '../assets/blouseCall.png'
 import ListingItem from '../components/ListingItem'
+import { Link } from 'react-router'
+import { Product } from '../types/productType'
+import { useEffect, useState } from 'react'
+
+
+
+
+
 
 function HomeNoAuth() {
+    const [products, setProducts] = useState<Product[]>([]);
+    
+    useEffect(() => {
+        fetch("http://localhost:3000/products/")
+            .then((response) => response.json())
+            .then((data: Product[]) => {console.log(data); if(data) setProducts(data)});
+    }, []);
+
   return (
     <div>
 
@@ -24,7 +40,7 @@ function HomeNoAuth() {
                         <h1 className='text-neutral-800 text-4xl font-[600]'>Fresh Arrivals Online</h1>
                         <p className='text-neutral-600'>Discover Our newest Collection Today</p>
                     </div>
-                    <Button arrow={true} text='View Collection' width={51}></Button>
+                    <Link to={"/shop"}><Button arrow={true} text='View Collection' width={51}></Button></Link>
                 </div>
                 <div className='flex align-bottom'>
                     <div className='relative'>
@@ -77,11 +93,16 @@ function HomeNoAuth() {
             </div>
 
             <div className='flex lg:flex-row flex-col gap-15 justify-center flex-wrap'>
-
-                <ListingItem></ListingItem> 
-                <ListingItem></ListingItem>
-                <ListingItem></ListingItem>
-                <ListingItem title='aha'></ListingItem>
+            {products.slice(0, 4).map((product) => (
+                <ListingItem
+                  key={product.id}
+                  imageSrc={product.image}
+                  title={product.name}
+                  label={product.stock > 0 ? "In Stock" : "No Stock"}
+                  price={`$${product.price}`}
+                  url={product.id}
+                />
+              ))}
             
             </div>
 
@@ -106,10 +127,16 @@ function HomeNoAuth() {
 
             <div className='mx-auto max-w-25 text-center border border-offWhite-300 px-4 py-1 rounded-2xl'>On Offer</div>
             <div className='flex lg:flex-row flex-col gap-15 justify-center flex-wrap py-20'>
-                <ListingItem></ListingItem> 
-                <ListingItem></ListingItem> 
-                <ListingItem></ListingItem> 
-                <ListingItem></ListingItem> 
+            {products.slice(4,8).map((product) => (
+                <ListingItem
+                  key={product.id}
+                  imageSrc={product.image}
+                  title={product.name}
+                  label={product.stock > 0 ? "In Stock" : "No Stock"}
+                  price={`$${product.price}`}
+                  url={product.id}
+                />
+              ))}
             </div>
 
     </section>
