@@ -3,182 +3,93 @@
     {
       "id": "1",
       "name": "Basic White T-Shirt",
-      "image": "https://i.imgur.com/blB9D7d.png",
+      "image": ["https://i.imgur.com/blB9D7d.png"],
       "category": "T-Shirt",
       "price": 15.99,
       "stock": 50,
       "colors": ["White", "Black", "Blue"],
-      "sizes": ["S", "M", "L", "XL"]
+      "sizes": ["S", "M", "L", "XL"],
+      "reviewCount": 120,
+      "stars": 4.5,
+      "details": "A classic white t-shirt made from soft cotton, perfect for everyday wear. Comfortable fit and available in multiple colors."
     },
     {
       "id": "2",
       "name": "Graphic Black T-Shirt",
-      "image": "https://s3-alpha-sig.figma.com/img/7f43/9f88/3d50177232901e42884d41bd843ec040?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=r4rkkFqBPvUOlkGgHt3FJqDdpnHoZvjfniCtLLvaKVHTH87iFvqGtAw~FgDEKsS~dtue3B5x2jvJnsA00hts3CfTaB6Gx9dniW6lcZ8cs8tHdw7ccBN0bkWU3FM5RAFUA1yJAhwRtMiwzv1wLtPfcK2tkVbcckQGqIsC9pEGv4IUTS10s0MGSNOZlo-7A9JmD0G2X1-N2RddF0pIDq-LDcVVajpbeJedUL7D1oY269RBB-fycuvdtQrN-UezI0lt6tfNBWeVmhdav8g8NVF9~UDr-JFirrQAmVe3ZpI3zzBQ7ZHgsyO3LOAkzJXGQBFXfRKZknWRjhtazMUMIYueNQ__",
+      "image": ["https://s3-alpha-sig.figma.com/img/dbac/8aa5/e758714d6dd93e24df2731f70e55e10c?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=TzJpf-G3ipNDniJ1Lwl2EyVliIivdeuar5uv1Y89L8k~A04Mxu8GAwxLyFKyg95QbX8R~D72gCUUf78xju5uVsmV5BW2vWKUy8LsnfCXSenn~1GI6UTICxm4KgDE54tOeMPDn1Cl5oUY8wjcNjTRJRkXTzTyuk5clgNJBAExXL2AlcRhsop7IZgYjyPNtNfSHQu8ETpULIg~6dm18ZaqXV~jNC~518s~jjLtC~~2P4yrXrLHc~uHFS10jvmphju37oLgZkVnv6W3ei8ms4YOFpG7AWBt2dkGx-yLGQJ0j4lFLIYwjlNi4FIel~NYljhwSEyjfmYaJz9bQZ~rsHdgdw__"],
       "category": "T-Shirt",
       "price": 19.99,
       "stock": 30,
       "colors": ["Black", "Red", "Gray"],
-      "sizes": ["M", "L", "XL"]
+      "sizes": ["M", "L", "XL"],
+      "reviewCount": 200,
+      "stars": 4.8,
+      "details": "A stylish black t-shirt with a unique graphic design. Made from high-quality fabric for a premium feel."
     },
     {
       "id": "3",
       "name": "Black Hoodie",
-      "image": "https://s3-alpha-sig.figma.com/img/3b7b/691a/04200a00273834b0da44eaca1a012086?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=aUVqfvBS8PEIVJaZxgzE~EMxMe0RQZ8-el3rAh9vsZsb-Zgp4kkrSQMPaut7iX1jK-EDlx1x66Yeq8ljf7pZMYfRUpqqxW1o5snXSLF400bSV0TxeDsQtMjIdbBnsQU2AvJd2T3cCU4cMJtJWwiAWlC90JfZWlTu0eav5bZVtBK1uCkDH7DZim0XenMOrkLG16E19PmfBD-8h5GN8metm07BYRdK-WNgjYYQ5a7lpuN064F4ef3Ad9J2lVnEv6nPz0IhbvJTrm4bHu03fv7wfsv8K8lapbFgHA28c6vc~ABmAyHpcxm9cONy4Vpi7zbY6iofdZPo~OtglBQKSc9IMA__",
+      "image": ["https://s3-alpha-sig.figma.com/img/3b7b/691a/04200a00273834b0da44eaca1a012086?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=aUVqfvBS8PEIVJaZxgzE~EMxMe0RQZ8-el3rAh9vsZsb-Zgp4kkrSQMPaut7iX1jK-EDlx1x66Yeq8ljf7pZMYfRUpqqxW1o5snXSLF400bSV0TxeDsQtMjIdbBnsQU2AvJd2T3cCU4cMJtJWwiAWlC90JfZWlTu0eav5bZVtBK1uCkDH7DZim0XenMOrkLG16E19PmfBD-8h5GN8metm07BYRdK-WNgjYYQ5a7lpuN064F4ef3Ad9J2lVnEv6nPz0IhbvJTrm4bHu03fv7wfsv8K8lapbFgHA28c6vc~ABmAyHpcxm9cONy4Vpi7zbY6iofdZPo~OtglBQKSc9IMA__"],
       "category": "Hoodie",
       "price": 29.99,
-      "stock": 20,
+      "stock": 0,
       "colors": ["Blue", "Black", "Gray"],
-      "sizes": ["S", "M", "L", "XL", "XXL"]
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "reviewCount": 300,
+      "stars": 4.7,
+      "details": "A warm and cozy hoodie made from premium cotton blend. Perfect for chilly days and casual wear."
     },
     {
       "id": "4",
       "name": "Grey Zip-Up Hoodie",
-      "image": "",
+      "image": ["https://s3-alpha-sig.figma.com/img/3b7b/691a/04200a00273834b0da44eaca1a012086?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=aUVqfvBS8PEIVJaZxgzE~EMxMe0RQZ8-el3rAh9vsZsb-Zgp4kkrSQMPaut7iX1jK-EDlx1x66Yeq8ljf7pZMYfRUpqqxW1o5snXSLF400bSV0TxeDsQtMjIdbBnsQU2AvJd2T3cCU4cMJtJWwiAWlC90JfZWlTu0eav5bZVtBK1uCkDH7DZim0XenMOrkLG16E19PmfBD-8h5GN8metm07BYRdK-WNgjYYQ5a7lpuN064F4ef3Ad9J2lVnEv6nPz0IhbvJTrm4bHu03fv7wfsv8K8lapbFgHA28c6vc~ABmAyHpcxm9cONy4Vpi7zbY6iofdZPo~OtglBQKSc9IMA__"],
       "category": "Hoodie",
       "price": 34.99,
       "stock": 15,
-      "colors": ["Gray", "Black", "Navy"],
-      "sizes": ["S", "M", "L", "XL"]
+      "colors": ["Grey"],
+      "sizes": ["S", "M", "L", "XL"],
+      "reviewCount": 150,
+      "stars": 4.2,
+      "details": "A stylish grey zip-up hoodie with a soft interior lining. Easy to wear and great for layering."
     },
     {
       "id": "5",
-      "name": "Red Graphic T-Shirt",
-      "image": "",
+      "name": "Brown Graphic T-Shirt",
+      "image": ["https://s3-alpha-sig.figma.com/img/ea93/867c/9c00620075282720d457a68b74f69a40?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=brfyyZvxy5Z-7zY2Sw6b1TDNVf3t35zCimyNfTldAgcz2dh6MyhOZ-t4rZGsDKau4pdh1mUtxOWk9Brzluke9seOJ1UjFmm66dqPTY9nCWqJj6jWdqKCrTKHe78cYZ~I7AN138onDf30bUdOudIITUaH4AxSN8KiVtKLYhlOXykdkvRqYGJYsA~luJT1uHuXOnJAdXGyZmpBpm-80TpgZkNW161wAHfK~mfoi3tyBBhMkszqBGyEuk1Xb2AJ0h3D5Rknm-eR4bkR~klnryKjx51xo64YQoKWob29IxyMTFN6rT0PKRQ-hTi3zV6meV0WDcE5tbmugeXpEWN0mjifTQ__"],
       "category": "T-Shirt",
       "price": 22.99,
       "stock": 40,
-      "colors": ["Red", "Black", "White"],
-      "sizes": ["S", "M", "L", "XL"]
+      "colors": ["Brown"],
+      "sizes": ["S", "M", "L", "XL"],
+      "reviewCount": 180,
+      "stars": 4.6,
+      "details": "A bold red t-shirt featuring a trendy graphic print. Made from breathable fabric for all-day comfort."
     },
     {
       "id": "6",
       "name": "Black Oversized Hoodie",
-      "image": "",
+      "image": [],
       "category": "Hoodie",
       "price": 39.99,
       "stock": 10,
       "colors": ["Black", "Gray", "White"],
-      "sizes": ["M", "L", "XL", "XXL"]
+      "sizes": ["M", "L", "XL", "XXL"],
+      "reviewCount": 250,
+      "stars": 4.9,
+      "details": "An oversized black hoodie designed for a relaxed fit. Made with soft fleece for extra warmth."
     },
     {
       "id": "7",
       "name": "Vintage White T-Shirt",
-      "image": "",
+      "image": ["https://s3-alpha-sig.figma.com/img/cc73/aa4a/0e8af69dd454db02bbfa89c8b3be4f4a?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=s5BhqyZvm1Y1bzuY4o6ns-97iutjOfkB-TlArr3EpIXSs5ps21G69hFjERoWDeTBSTmBs9bqUpX0XL0nRX-T~4jdNIvSplT1WTyWQx5f7xsOf9bvMW67pj3p36m0aX5gl4~VRsNtIsGJSVHrgEi1iWMjsT2SbnIxbbqVNZMwS~rX-3NFE1TBRR7dROgK2qOSGhtt~qhe-92kx~XQJLScVv~CfwRGG-7c7OkrCtvKtRcFGGoaL2ZCbLut17C-TLl6fudAEjSXVqJsiq6vTCMFOBTdreasX3zbm32Z3jvRIXoJ1fG0yOLQ6J25edoRZc6r5vp8ThYKgQJxGvbY2OB9~w__"],
       "category": "T-Shirt",
       "price": 18.99,
       "stock": 35,
       "colors": ["White", "Beige", "Gray"],
-      "sizes": ["S", "M", "L"]
-    },
-    {
-      "id": "8",
-      "name": "Camo Green Hoodie",
-      "image": "",
-      "category": "Hoodie",
-      "price": 33.99,
-      "stock": 25,
-      "colors": ["Green", "Brown", "Black"],
-      "sizes": ["M", "L", "XL", "XXL"]
-    },
-    {
-      "id": "9",
-      "name": "Slim Fit Jeans",
-      "image": "",
-      "category": "Jeans",
-      "price": 49.99,
-      "stock": 20,
-      "colors": ["Blue", "Black"],
-      "sizes": ["30", "32", "34", "36"]
-    },
-    {
-      "id": "10",
-      "name": "Classic Sneakers",
-      "image": "",
-      "category": "Shoes",
-      "price": 59.99,
-      "stock": 15,
-      "colors": ["White", "Black", "Gray"],
-      "sizes": ["8", "9", "10", "11"]
-    },
-    {
-      "id": "11",
-      "name": "Striped Polo Shirt",
-      "image": "",
-      "category": "T-Shirt",
-      "price": 24.99,
-      "stock": 30,
-      "colors": ["Blue", "Red", "Green"],
-      "sizes": ["M", "L", "XL"]
-    },
-    {
-      "id": "12",
-      "name": "Denim Jacket",
-      "image": "",
-      "category": "Jacket",
-      "price": 69.99,
-      "stock": 10,
-      "colors": ["Blue", "Black"],
-      "sizes": ["M", "L", "XL"]
-    },
-    {
-      "id": "13",
-      "name": "High-Top Sneakers",
-      "image": "",
-      "category": "Shoes",
-      "price": 79.99,
-      "stock": 12,
-      "colors": ["White", "Black", "Red"],
-      "sizes": ["8", "9", "10", "11"]
-    },
-    {
-      "id": "14",
-      "name": "Cotton Beanie",
-      "image": "",
-      "category": "Accessories",
-      "price": 14.99,
-      "stock": 50,
-      "colors": ["Black", "Gray", "Navy"],
-      "sizes": ["One Size"]
-    },
-    {
-      "id": "15",
-      "name": "Leather Belt",
-      "image": "",
-      "category": "Accessories",
-      "price": 19.99,
-      "stock": 40,
-      "colors": ["Brown", "Black"],
-      "sizes": ["S", "M", "L", "XL"]
-    },
-    {
-      "id": "16",
-      "name": "Wool Scarf",
-      "image": "",
-      "category": "Accessories",
-      "price": 29.99,
-      "stock": 25,
-      "colors": ["Red", "Blue", "Gray"],
-      "sizes": ["One Size"]
-    },
-    {
-      "id": "17",
-      "name": "Running Shoes",
-      "image": "",
-      "category": "Shoes",
-      "price": 89.99,
-      "stock": 18,
-      "colors": ["White", "Black", "Blue"],
-      "sizes": ["8", "9", "10", "11"]
-    },
-    {
-      "id": "18",
-      "name": "Cargo Pants",
-      "image": "",
-      "category": "Pants",
-      "price": 44.99,
-      "stock": 22,
-      "colors": ["Khaki", "Green", "Black"],
-      "sizes": ["30", "32", "34", "36"]
+      "sizes": ["S", "M", "L"],
+      "reviewCount": 90,
+      "stars": 4.1,
+      "details": "A vintage-style white t-shirt with a soft-washed finish. A timeless piece for any wardrobe."
     }
   ]
 }
