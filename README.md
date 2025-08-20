@@ -29,9 +29,4 @@ then start the application with:
 ```bash
 npm run dev
 ```
-Done! the application and database will start running on localhost.
-
-
-# Author
-
-### [Daniel de Carvalho](https://github.com/devalyo)
+Done, the application and database will start running on localhost.
